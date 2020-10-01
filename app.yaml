@@ -2,11 +2,31 @@ runtime: php55
 api_version: 1
 threadsafe: true
 
+# handlers:
+# - url: /
+#   static_files: www/index.html
+#   upload: www/index.html
+
+# - url: /(.*)
+#   static_files: www/\1
+#   upload: www/(.*)
+
 handlers:
 - url: /
-  static_files: www/index.html
-  upload: www/index.html
+  static_files: www/index2.html
+  upload: index2.html
+  secure: always
+
+- url: /(.*)/
+  static_files: www/\1/index2.html
+  upload: (.*)/index2.html
+  secure: always
 
 - url: /(.*)
   static_files: www/\1
-  upload: www/(.*)
+  upload: (.*)
+  secure: always
+
+- url: /favicon\.ico
+  static_files: www/images/favicon.ico
+  upload: www/images/favicon\.ico
